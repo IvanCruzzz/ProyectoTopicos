@@ -1,0 +1,8 @@
+.vuelo_row {
+  cursor: pointer;
+}
+
+.selected {
+  background-color: #9ec3ff;
+  color: red;
+}

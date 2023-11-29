@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aviones</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="./index.css">
+    <script src='./index.js' type="module"></script>
+  </head>
+  <body>
+    <div class="text-center bg-primary">
+        <h1 class="text-light">Aviones</h1>
+    </div>
+      <div class="table-responsive-sm m-4">
+        <table class="table text-center align-middle">
+          <thead>
+            <tr>
+              <th>Vuelo</th>
+              <th>Avion</th>
+              <th>Origen</th>
+              <th>Destino</th>
+              <th>Fecha Salida</th>
+            </tr>
+          </thead>
+          <tbody id="tabla_vuelos">
+          </tbody>
+        </table>
+      </div>
+      <div class="text-center my-4">
+          <button type="button" class="btn btn-success" id="iniciar">Iniciar vuelo</button>
+          <button type="button" class="btn btn-secondary" id="ubicacion">Ubicacion</button>
+          <button type="button" class="btn btn-danger" id="terminar">Terminar vuelo </button>
+      </div>
+    </body>
+</html>
