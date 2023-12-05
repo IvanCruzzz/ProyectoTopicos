@@ -9,17 +9,24 @@ const tabla = document.getElementById('tabla_vuelos');
 //
 let vuelo_seleccionado = null;
 let vuelos;
+const url=" https://7574-187-251-199-238.ngrok-free.app";
 
 //setting up the page
 axios({
   method: 'get',
-  url: `http://${process.env.HOST}:${process.env.API_PORT}/api/vuelos`
+  url: `${url}/api/vuelos`,
+  headers: {
+    'ngrok-skip-browser-warning': 1
+  }
 }).then(res => {
   vuelos = res.data.data;
   actualizar_vuelos(vuelos);
 }, err => {
   console.log(err);
 });
+
+console.log( `${url}/api/vuelos`);
+
 
 //actualizando la tabla de vuelos
 const actualizar_vuelos = (vuelos) => {
@@ -82,7 +89,7 @@ iniciar_btn.addEventListener('click', () => {
 
   axios({
     method: 'post',
-    url: `http://${process.env.HOST}:${process.env.API_PORT}/api/aviones/despegar`,
+    url: `${url}/api/aviones/despegar`,
     data: {
       id: vuelo_seleccionado.avion
     }
@@ -101,7 +108,7 @@ terminar_btn.addEventListener('click', () => {
 
   axios({
     method: 'post',
-    url: `http://${process.env.HOST}:${process.env.API_PORT}/api/aviones/aterrizar`,
+    url: `${url}/api/aviones/aterrizar`,
     data: {
       id: vuelo_seleccionado.avion
     }
@@ -126,7 +133,7 @@ ubicacion_btn.addEventListener('click', () => {
         console.log(position.coords.longitude)
         axios({
           method: 'post',
-          url: `http://${process.env.HOST}:${process.env.API_PORT}/api/aviones/reportar`,
+          url: `${url}/api/aviones/reportar`,
           data: {
             id: vuelo_seleccionado.avion,
             latitud: position.coords.latitude,
@@ -149,3 +156,4 @@ ubicacion_btn.addEventListener('click', () => {
 
 function sendPosition(position) {
 }
+
